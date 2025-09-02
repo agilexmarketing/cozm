@@ -150,6 +150,7 @@ export default function Hero() {
                 boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
                 transition: 'all 0.2s'
               }}
+              className="hover:bg-blue-600"
             >
               {t('home.viewProperties')}
             </Link>
@@ -173,6 +174,7 @@ export default function Hero() {
                 backgroundColor: 'white',
                 transition: 'all 0.2s'
               }}
+              className="hover:bg-blue-50"
             >
               {t('home.forSale')}
             </Link>
@@ -196,6 +198,7 @@ export default function Hero() {
                 backgroundColor: 'white',
                 transition: 'all 0.2s'
               }}
+              className="hover:bg-green-50"
             >
               {t('home.forRent')}
             </Link>

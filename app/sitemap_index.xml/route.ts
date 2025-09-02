@@ -1,14 +1,25 @@
-import { prisma } from '@/lib/db'
 import { languages } from '@/lib/i18n'
 
 export async function GET() {
   const baseUrl = process.env.NEXTAUTH_URL || 'https://cozm.agilemedia.com'
   
-  // Get all properties for dynamic URLs
-  const properties = await prisma.property.findMany({
-    where: { status: 'ACTIVE' },
-    select: { slug: true, updatedAt: true }
-  })
+  // For build time, we'll generate a basic sitemap without dynamic properties
+  // Properties will be indexed when the sitemap is requested at runtime
+  let properties: { slug: string; updatedAt: Date }[] = []
+  
+  try {
+    // Only try to connect to database if DATABASE_URL is available
+    if (process.env.DATABASE_URL) {
+      const { prisma } = await import('@/lib/db')
+      properties = await prisma.property.findMany({
+        where: { status: 'ACTIVE' },
+        select: { slug: true, updatedAt: true }
+      })
+    }
+  } catch (error) {
+    // If database is not available during build, continue with empty properties
+    console.log('Database not available during build, generating basic sitemap')
+  }
   
   const currentDate = new Date().toISOString()
   
