@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "cozm",
+  "alias": ["cozm.agilemedia.com"],
+  "regions": ["iad1"],
+  "build": {
+    "env": {
+      "NEXTAUTH_URL": "https://cozm.agilemedia.com"
+    }
+  },
+  "env": {
+    "NEXTAUTH_URL": "https://cozm.agilemedia.com"
+  },
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap_index.xml"
+    }
+  ]
+}

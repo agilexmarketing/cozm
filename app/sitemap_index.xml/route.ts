@@ -2,7 +2,7 @@ import { prisma } from '@/lib/db'
 import { languages } from '@/lib/i18n'
 
 export async function GET() {
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://your-domain.vercel.app'
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://cozm.agilemedia.com'
   
   // Get all properties for dynamic URLs
   const properties = await prisma.property.findMany({

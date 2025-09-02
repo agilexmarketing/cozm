@@ -3,7 +3,7 @@ export async function GET() {
 Allow: /
 
 # Sitemaps
-Sitemap: ${process.env.NEXTAUTH_URL || 'https://your-domain.vercel.app'}/sitemap_index.xml
+Sitemap: ${process.env.NEXTAUTH_URL || 'https://cozm.agilemedia.com'}/sitemap_index.xml
 
 # Allow all crawlers
 User-agent: *
