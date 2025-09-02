@@ -39,10 +39,10 @@ export async function GET(req: NextRequest) {
   }
   
   const orderBy = query.sort === 'price_desc' 
-    ? { price: 'desc' } 
+    ? { price: 'desc' as const } 
     : query.sort === 'price_asc' 
-    ? { price: 'asc' } 
-    : { listedAt: 'desc' }
+    ? { price: 'asc' as const } 
+    : { listedAt: 'desc' as const }
   
   const skip = (query.page - 1) * query.per_page
   

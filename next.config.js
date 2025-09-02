@@ -4,7 +4,14 @@ const nextConfig = {
     serverComponentsExternalPackages: ['bcrypt']
   },
   images: {
-    domains: ['picsum.photos']
+    domains: ['picsum.photos'],
+    unoptimized: true
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
   }
 }
 
